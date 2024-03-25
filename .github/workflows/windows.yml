@@ -1,0 +1,30 @@
+name: Windows CI Test
+on:
+  push:
+    branches: [main, master, dev]
+  pull_request:
+    branches: [main, master, dev]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        with:
+          egress-policy: audit
+          disable-telemetry: true
+      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+      - name: configure
+        run: |
+          cmake -H"." -Bbuild -T host=x86 -A x64 -DCMAKE_BUILD_TYPE="Debug"
+      - name: building
+        run: |
+          cmake --build build --config Debug --target Catch_tests_run -j4
+      - name: run unit tests
+        run: |
+          cd build
+          cd bin
+          cd Debug
+          .\Catch_tests_run.exe

@@ -1,0 +1,49 @@
+name: Ubuntu CI Test
+on:
+  push:
+    branches: [main, master, dev]
+  pull_request:
+    branches: [main, master, dev]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        with:
+          egress-policy: audit
+          disable-telemetry: true
+      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+      - name: install
+        run: sudo apt-get update
+      - name: Setup Cpp
+        uses: aminya/setup-cpp@290824452986e378826155f3379d31bce8753d76 # v0.37.0
+        with:
+          clangtidy: true
+      - name: configure
+        run: |
+          cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DENABLE_COVERAGE=On
+      - name: building
+        run: |
+          cmake --build build --config Debug --target Catch_tests_run ComponentTests EntityTests
+      - name: run unit tests
+        working-directory: ./build/bin
+        run: |
+          ./Catch_tests_run
+      - name: generate coverage
+        working-directory: ./build
+        run: |
+          make cov
+      - name: Install gcovr
+        run: |
+          pip install -r requirements.txt  --require-hashes
+      - name: Generate JSON coverage report
+        working-directory: ./build
+        run: |
+          gcovr -r .. . --filter ../src/ --txt-metric branch --cobertura > coverage.xml
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@54bcd8715eee62d40e33596ef5e8f0f48dbbccab # v4.1.0
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
