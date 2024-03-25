@@ -69,7 +69,7 @@ jobs:
         uses: github/codeql-action/autobuild@1b1aada464948af03b950897e5eb522f92603cc2 # v3.24.9
       - if: matrix.language == 'c-cpp'
         name: install
-        run: sudo apt-get update && sudo apt-get install gcovr lcov libxrandr-dev libxcursor-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev freeglut3-dev libxinerama-dev libxi-dev
+        run: sudo apt-get update && sudo apt-get install gcovr lcov
       - if: matrix.language == 'c-cpp'
         name: Configure
         shell: bash

@@ -4,9 +4,6 @@ repos:
       - id: commitizen
         stages:
           - commit-msg
-      - id: commitizen-branch
-        stages:
-          - push
     repo: https://github.com/commitizen-tools/commitizen
     rev: v3.20.0
   - hooks:
