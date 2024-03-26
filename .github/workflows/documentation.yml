@@ -9,6 +9,9 @@ permissions:
 jobs:
   build:
     name: Build and publish documentation
+    permissions:
+      contents: write
+      pages: write
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
@@ -36,9 +39,6 @@ jobs:
         run: |
           cmake --build build --config Debug --target doc_doxygen -j4
       - name: Deploy to GitHub Pages
-        permissions:
-          contents: write
-          pages: write
         uses: Cecilapp/GitHub-Pages-deploy@526a34f794dfdf7edd6a4ac94321b1e7945910c0 # v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
