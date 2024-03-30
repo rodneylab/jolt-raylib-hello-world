@@ -20,14 +20,18 @@ drop a comment at the bottom of that page.
 
 ## 🖥️ Usage
 
+<img src="./images/getting-started.gif" alt="Terminal animation shows the user entering the following commands:  cd .build, cmake .., cmake --build ., ./bin/JoltRaylibHelloWorld. Then out shows animation steps including velocity and position at each step.">
+
 Requires [CMake](https://cmake.org/getting-started/) and a C++ compiler.
 
 Clone the repo then run:
 
 ```shell
-cmake . -B build
-cmake --build build
-./build/bin/RaylibImGuiApp
+mkdir .build
+cd .build
+cmake ..
+cmake --build .
+./bin/RaylibImGuiApp
 ```
 
 With the game running, press the <kbd>F9</kbd> key to bring up the debug
