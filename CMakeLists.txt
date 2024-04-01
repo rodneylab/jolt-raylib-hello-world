@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
-project(JoltRaylibHelloWorld 
-    VERSION 0.0.1
-    DESCRIPTION "Jolt Physics raylib: trying Jolt C++ game development physics library with raylib in a 3D hello world bouncing sphere example."
-    LANGUAGES C CXX)
+project(
+  JoltRaylibHelloWorld
+  VERSION 0.0.1
+  DESCRIPTION
+    "Jolt Physics raylib: trying Jolt C++ game development physics library with raylib in a 3D hello world bouncing sphere example."
+  LANGUAGES C CXX)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_EXPORT_COMPILE_COMMANDS True)
 add_library(jolt_raylib_hello_world_compiler_flags INTERFACE)
@@ -98,7 +100,7 @@ set(CMAKE_EXE_LINKER_FLAGS_DISTRIBUTION "${CMAKE_EXE_LINKER_FLAGS_RELEASE}")
 
 # Enable link time optimization in Release and Distribution mode if requested
 # and available
-SET_INTERPROCEDURAL_OPTIMIZATION()
+set_interprocedural_optimization()
 
 # Compile the HelloWorld application
 add_executable(JoltRaylibHelloWorld src/main.cpp src/game/game.cpp
