@@ -67,6 +67,7 @@ int main(int /* argc */, char ** /* argv */)
 
     const Vector3 floor_position{0.F, -1.F, 0.F};
     const Vector3 floor_dimensions{5.F, 1.F, 5.F};
+
     spdlog::info("Creating Physics Engine");
     PhysicsEngine physics_engine{};
 

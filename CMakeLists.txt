@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
-project(JoltRaylibHelloWorld LANGUAGES C CXX)
+project(JoltRaylibHelloWorld 
+    VERSION 0.0.1
+    DESCRIPTION "Jolt Physics raylib: trying Jolt C++ game development physics library with raylib in a 3D hello world bouncing sphere example."
+    LANGUAGES C CXX)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_EXPORT_COMPILE_COMMANDS True)
 add_library(jolt_raylib_hello_world_compiler_flags INTERFACE)
@@ -118,4 +121,4 @@ target_compile_definitions(
   JoltRaylibHelloWorld PUBLIC ASSETS_PATH="${CMAKE_CURRENT_SOURCE_DIR}/assets/")
 
 # Make this project the startup project
-set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT "JPUBLIColtRaylibHelloWorld")
+set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT "JoltRaylibHelloWorld")
