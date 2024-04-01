@@ -2,10 +2,10 @@ Template repo for syncing C++ CI GitHub workflows and other config.
 
 Repo is intended for use with C++ projects, so most CI GitHub workflows run on
 this template will fail; they need a project with C++ source, Catch2 tests,
-CMake, Doxygen documentation and so on,configured to pass.
+CMake, Doxygen documentation and so on, configured to pass.
 
 Based on
-[process described by Jonathan Gjengset in this Setting up CI stream](https://www.youtube.com/watch?v=xUH-4y92jPg)
+[process described by Jon Gjengset in this Setting up CI stream](https://www.youtube.com/watch?v=xUH-4y92jPg)
 
 ## Usage
 
