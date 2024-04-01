@@ -1,0 +1,44 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  build:
+    name: ${{ matrix.platform.name }} ${{ matrix.config.name }}
+    runs-on: ${{ matrix.platform.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - {name: Windows VS2019, os: windows-2019}
+          - {name: Windows VS2022, os: windows-2022, -flags: -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=TRUE -DBUILD_SHARED_LIBS=TRUE}
+          - {name: Linux GCC, os: ubuntu-latest}
+          - {name: Linux Clang, os: ubuntu-latest, flags: -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++}
+          - {name: macOS, os: macos-latest}
+        config:
+          - {name: Shared, flags: -DBUILD_SHARED_LIBS=TRUE}
+          - {name: Static, flags: -DBUILD_SHARED_LIBS=FALSE}
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        with:
+          egress-policy: audit
+          disable-telemetry: true
+      - name: Install Linux Dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update
+      - name: Checkout
+        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+      - name: Setup Cpp
+        uses: aminya/setup-cpp@290824452986e378826155f3379d31bce8753d76 # v0.37.0
+        with:
+          clangtidy: true
+      - name: Configure
+        shell: bash
+        run: cmake -S . -B build -DCMAKE_INSTALL_PREFIX=install ${{matrix.platform.flags}} ${{matrix.config.flags}}
+      - name: Build
+        shell: bash
+        run: cmake --build build --config Release
+      - name: Install
+        shell: bash
+        run: cmake --install build --config Release
