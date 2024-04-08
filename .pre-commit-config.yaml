@@ -16,7 +16,7 @@ repos:
           - json
         id: clang-format
     repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v18.1.2
+    rev: v18.1.3
   - hooks:
       - args:
           - --markdown-linebreak-ext=md
@@ -27,7 +27,7 @@ repos:
         id: check-json
       - id: no-commit-to-branch
     repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
   - hooks:
       - id: yamlfmt
     repo: https://github.com/google/yamlfmt
