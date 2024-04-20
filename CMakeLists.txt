@@ -124,3 +124,9 @@ target_compile_definitions(
 
 # Make this project the startup project
 set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT "JoltRaylibHelloWorld")
+
+option(RUN_UNIT_TESTS "Run Catch2 unit tests" ON)
+if(RUN_UNIT_TESTS)
+    enable_testing()
+    add_subdirectory(Catch_tests)
+endif()
