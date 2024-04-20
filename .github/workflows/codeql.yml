@@ -36,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ['c-cpp', 'python']
+        language: ['c-cpp']
         # CodeQL supports [ 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift' ]
         # Use only 'java-kotlin' to analyze code written in Java, Kotlin or both
         # Use only 'javascript-typescript' to analyze code written in JavaScript, TypeScript or both
@@ -54,22 +54,9 @@ jobs:
           # Prefix the list here with "+" to use these queries and those in the config file.
       #   If the Autobuild fails above, remove it and uncomment the following three lines.
       #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
-      - if: matrix.language == 'python'
-        # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
-        # queries: security-extended,security-and-quality
-
-        # ℹ️ Command-line programs to run using the OS shell.
-        # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
-
-        # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
-        # If this step fails, then you should remove it and run the build manually (see below)
-        #   - name: Autobuild
-        #     uses: github/codeql-action/autobuild@v3
-        name: Autobuild
-        uses: github/codeql-action/autobuild@df5a14dc28094dc936e103b37d749c6628682b60 # v3.25.0
       - if: matrix.language == 'c-cpp'
         name: install
-        run: sudo apt-get update && sudo apt-get install gcovr lcov
+        run: sudo apt-get update && sudo apt-get install lcov libxrandr-dev libxcursor-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev freeglut3-dev libxinerama-dev libxi-dev
       - if: matrix.language == 'c-cpp'
         name: Configure
         shell: bash
