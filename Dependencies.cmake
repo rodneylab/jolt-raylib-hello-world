@@ -46,9 +46,9 @@ set(USE_F16C ON)
 set(USE_FMADD ON)
 
 # Requires C++ 17
-#set(CMAKE_CXX_STANDARD 17)
-#set(CMAKE_CXX_STANDARD_REQUIRED ON)
-#set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 function(jolt_raylib_hello_world_setup_dependencies)
   message(STATUS "Include Dear ImGui")

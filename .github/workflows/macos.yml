@@ -20,6 +20,8 @@ jobs:
         uses: aminya/setup-cpp@290824452986e378826155f3379d31bce8753d76 # v0.37.0
         with:
           clangtidy: true
+          cmake: true
+          compiler: llvm
       - name: configure
         run: |
           cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE="Debug"
