@@ -18,4 +18,5 @@ git merge --allow-unrelated ci/main
 ```
 
 This will clone the history of this repo and merge it with yours. You can also
-merge updates to these templates (by running the `git merge` step above again).
+merge updates to these templates (by running the `git fetch ci` & `git merge`
+steps above again).
