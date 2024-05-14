@@ -5,7 +5,7 @@ repos:
         stages:
           - commit-msg
     repo: https://github.com/commitizen-tools/commitizen
-    rev: v3.24.0
+    rev: v3.25.0
   - hooks:
       - id: gitleaks
     repo: https://github.com/gitleaks/gitleaks
@@ -16,7 +16,7 @@ repos:
           - json
         id: clang-format
     repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v18.1.4
+    rev: v18.1.5
   - hooks:
       - args:
           - --markdown-linebreak-ext=md
@@ -31,4 +31,4 @@ repos:
   - hooks:
       - id: yamlfmt
     repo: https://github.com/google/yamlfmt
-    rev: v0.11.0
+    rev: v0.12.1
