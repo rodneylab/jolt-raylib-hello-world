@@ -241,7 +241,7 @@ void PhysicsEngine::create_floor(const Vector3 &floor_dimensions,
                          // nullptr
     if (floor == nullptr)
     {
-        spdlog::error("Error creating floor body interface. Thre might be too "
+        spdlog::error("Error creating floor body interface. There might be too "
                       "many bodies.");
     }
 
