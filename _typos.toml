@@ -1,2 +1,5 @@
+[default.extend-identifiers]
+Ot = "Ot"
+
 [files]
 extend-exclude = ["cmake/CPM.cmake"]

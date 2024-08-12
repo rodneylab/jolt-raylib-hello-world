@@ -1,6 +1,6 @@
 include(cmake/CPM.cmake)
 
-## Jolt Config
+# Jolt Config
 
 # When turning this option on, the library will be compiled using doubles for
 # positions. This allows for much bigger worlds.
@@ -55,7 +55,7 @@ function(jolt_raylib_hello_world_setup_dependencies)
   FetchContent_Declare(
     ImGui
     GIT_REPOSITORY https://github.com/ocornut/imgui
-    GIT_TAG 277ae93c41314ba5f4c7444f37c4319cdf07e8cf) # v1.90.4
+    GIT_TAG cb16be3a3fc1f9cd146ae24d52b615f8a05fa93d) # v1.90.9
   FetchContent_MakeAvailable(ImGui)
   FetchContent_GetProperties(ImGui SOURCE_DIR IMGUI_DIR)
 
@@ -69,7 +69,7 @@ function(jolt_raylib_hello_world_setup_dependencies)
   FetchContent_Declare(
     JoltPhysics
     GIT_REPOSITORY "https://github.com/jrouwe/JoltPhysics"
-    GIT_TAG "v4.0.2"
+    GIT_TAG "cede24d2733a4a473c6d486650ca9b6d0481681a" # v5.1.0
     SOURCE_SUBDIR "Build")
   FetchContent_MakeAvailable(JoltPhysics)
 
@@ -80,15 +80,16 @@ function(jolt_raylib_hello_world_setup_dependencies)
   )# v0.5.1
 
   message(STATUS "Include fmtlib")
-  cpmaddpackage("gh:fmtlib/fmt#e69e5f977d458f2650bb346dadf2ad30c5320281") # 10.x
+  cpmaddpackage("gh:fmtlib/fmt#0c9fce2ffefecfdce794e1859584e25877b7b592"
+  )# 11.0.2
 
   message(STATUS "Include raylib")
   cpmaddpackage("gh:raysan5/raylib#ae50bfa2cc569c0f8d5bc4315d39db64005b1b0"
   )# v5.0
 
   message(STATUS "Include spdlog")
-  cpmaddpackage("gh:gabime/spdlog#7c02e204c92545f869e2f04edaab1f19fe8b19fd"
-  )# v1.13.0
+  cpmaddpackage("gh:gabime/spdlog#27cb4c76708608465c413f6d0e6b8d99a4d84302"
+  )# v1.14.1
 
   message(STATUS "Include rlImGui")
   FetchContent_Declare(
@@ -98,14 +99,6 @@ function(jolt_raylib_hello_world_setup_dependencies)
   FetchContent_MakeAvailable(rlImGui)
   FetchContent_GetProperties(rlImGui SOURCE_DIR RLIMGUI_DIR)
   add_library(rlimgui STATIC ${rlimgui_SOURCE_DIR}/rlImGui.cpp)
-  #add_library(rlimgui INTERFACE)
-  #target_sources(rlimgui PRIVATE ${rlimgui_SOURCE_DIR}/rlImGui.cpp)
   target_link_libraries(rlimgui PUBLIC imgui raylib)
-  #target_link_libraries(rlimgui INTERFACE imgui raylib)
-#  if(APPLE)
-#    target_link_libraries(rlimgui PUBLIC "-framework IOKit")
-#    target_link_libraries(rlimgui PUBLIC "-framework Cocoa")
-#    target_link_libraries(rlimgui PUBLIC "-framework OpenGL")
-#  endif()
   target_include_directories(rlimgui INTERFACE ${rlimgui_SOURCE_DIR})
 endfunction()
