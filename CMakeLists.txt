@@ -38,7 +38,7 @@ if (MSVC)
 
 	# Set general compiler flags
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:__cplusplus /Gm- /Wall /WX /MP /nologo /diagnostics:classic /FC /fp:except- /Zc:inline")
-	
+
 	# Optionally generate debug symbols
 	if (GENERATE_DEBUG_SYMBOLS)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi")
