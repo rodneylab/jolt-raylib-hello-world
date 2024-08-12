@@ -69,7 +69,7 @@ function(jolt_raylib_hello_world_setup_dependencies)
   FetchContent_Declare(
     JoltPhysics
     GIT_REPOSITORY "https://github.com/jrouwe/JoltPhysics"
-    GIT_TAG "f2d1175432f8225450dea252322ba2dbaa83a370" # v5.0.0
+    GIT_TAG "cede24d2733a4a473c6d486650ca9b6d0481681a" # v5.1.0
     SOURCE_SUBDIR "Build")
   FetchContent_MakeAvailable(JoltPhysics)
 
