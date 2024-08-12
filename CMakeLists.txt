@@ -22,7 +22,8 @@ target_compile_options(
   jolt_raylib_hello_world_compiler_flags
   INTERFACE
     "$<${gcc_like_cxx}:$<BUILD_INTERFACE:-pedantic-errors;-Werror;-Wall;-Weffc++;-Wextra;-Wconversion;-Wsign-conversion>>"
-    "$<${msvc_cxx}:$<BUILD_INTERFACE:-W4>>")
+    #    "$<${msvc_cxx}:$<BUILD_INTERFACE:-W4>>"
+)
 
 
 if (MSVC)
