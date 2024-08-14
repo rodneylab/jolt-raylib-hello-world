@@ -24,7 +24,7 @@ jobs:
         if: runner.os == 'Linux'
         run: sudo apt-get update
       - name: Setup Cpp
-        uses: aminya/setup-cpp@f898162cf1135cc510765d863e59ee45078d8d04 # v0.38.2
+        uses: aminya/setup-cpp@5962369655effd7210f2da2a84a9dbf2be48ca29 # v0.38.3
         with:
           clangtidy: true
       - uses: actions/setup-python@39cd14951b08e74b54015e9e001cdefcf80e669f # v5.1.1
