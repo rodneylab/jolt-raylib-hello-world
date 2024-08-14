@@ -30,7 +30,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Setup Cpp
-        uses: aminya/setup-cpp@f898162cf1135cc510765d863e59ee45078d8d04 # v0.38.2
+        uses: aminya/setup-cpp@5962369655effd7210f2da2a84a9dbf2be48ca29 # v0.38.3
         with:
           clangtidy: true
       - name: Configure
