@@ -15,4 +15,4 @@ jobs:
       - name: Checkout Actions Repository
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Check spelling of entire workspace
-        uses: crate-ci/typos@b86466d268920e98b8f1acc7fbb6f08ec871d136 # v1.24.1
+        uses: crate-ci/typos@853bbe8898c2e3ce040ba6fb0b2cbb3d0ababec5 # v1.24.4
