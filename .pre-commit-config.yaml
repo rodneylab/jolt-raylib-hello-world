@@ -5,18 +5,18 @@ repos:
         stages:
           - commit-msg
     repo: https://github.com/commitizen-tools/commitizen
-    rev: v3.29.0
+    rev: v3.29.1
   - hooks:
       - id: gitleaks
     repo: https://github.com/gitleaks/gitleaks
-    rev: v8.19.2
+    rev: v8.19.3
   - hooks:
       - exclude_types:
           - javascript
           - json
         id: clang-format
     repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v18.1.8
+    rev: v19.1.0
   - hooks:
       - args:
           - --markdown-linebreak-ext=md
