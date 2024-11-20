@@ -44,6 +44,6 @@ jobs:
         run: |
           gcovr -r .. . --filter ../src/ --branches --cobertura > coverage.xml
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@5c47607acb93fed5485fdbf7232e8a31425f672a # v5.0.2
+        uses: codecov/codecov-action@288befbd1044bd1756afb0bdae077549e0ddb31f # v5.0.5
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
