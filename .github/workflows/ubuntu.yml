@@ -19,7 +19,7 @@ jobs:
       - name: install
         run: sudo apt-get update && sudo apt-get install lcov libxrandr-dev libxcursor-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev freeglut3-dev libxinerama-dev libxi-dev
       - name: Setup Cpp
-        uses: aminya/setup-cpp@1fd813945e55021261b381c59275db442da4082f # v0.45.0
+        uses: aminya/setup-cpp@12e62a1b8da8f1e66acc75305a2621234ef49dd0 # v0.46.0
         with:
           clangtidy: true
       - name: configure
