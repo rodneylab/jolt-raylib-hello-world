@@ -5,11 +5,11 @@ repos:
         stages:
           - commit-msg
     repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.1.0
+    rev: v4.1.1
   - hooks:
       - id: gitleaks
     repo: https://github.com/gitleaks/gitleaks
-    rev: v8.23.1
+    rev: v8.23.2
   - hooks:
       - exclude_types:
           - javascript
