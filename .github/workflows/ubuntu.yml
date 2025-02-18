@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
+        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
         with:
           egress-policy: audit
           disable-telemetry: true
@@ -19,7 +19,7 @@ jobs:
       - name: install
         run: sudo apt-get update && sudo apt-get install lcov libxrandr-dev libxcursor-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev freeglut3-dev libxinerama-dev libxi-dev
       - name: Setup Cpp
-        uses: aminya/setup-cpp@a03cb7ea002c225d3c1aae86a1e751f9598345ed # v0.46.1
+        uses: aminya/setup-cpp@abe2d67f8c619c5f4b9e40358430e33df461d5b8 # v0.46.1
         with:
           clangtidy: true
       - name: configure
