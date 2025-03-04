@@ -19,7 +19,7 @@ jobs:
       - name: install
         run: sudo apt-get update && sudo apt-get install lcov libxrandr-dev libxcursor-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libgl1-mesa-dev libegl1-mesa-dev freeglut3-dev libxinerama-dev libxi-dev
       - name: Setup Cpp
-        uses: aminya/setup-cpp@abe2d67f8c619c5f4b9e40358430e33df461d5b8 # v0.46.1
+        uses: aminya/setup-cpp@3aac37c3fbde6cb1d2fa0a0a7e945b63b10561d5 # v0.46.1
         with:
           clangtidy: true
       - name: configure
@@ -44,6 +44,6 @@ jobs:
         run: |
           gcovr -r .. . --filter ../src/ --branches --cobertura > coverage.xml
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@13ce06bfc6bbe3ecf90edbbf1bc32fe5978ca1d3 # v5.3.1
+        uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5.4.0
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
