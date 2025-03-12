@@ -19,7 +19,7 @@ jobs:
       - name: install
         run: sudo apt-get update
       - name: Setup Cpp
-        uses: aminya/setup-cpp@17c11551771948abc5752bbf3183482567c7caf0 # v1.1.1
+        uses: aminya/setup-cpp@12841b3f655fd9c280f7293e5f9d8ecb2b2b7c51 # v1.2.1
         with:
           clangtidy: true
       - name: configure
